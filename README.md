@@ -16,7 +16,7 @@ Current solutions such as alarms or mobile apps:
 - Only provide reminders  
 - Cannot verify if medication is actually taken  
 
-👉 Therefore, a system with **sensing capability** is required.
+Therefore, a system with **sensing capability** is required.
 
 ---
 
