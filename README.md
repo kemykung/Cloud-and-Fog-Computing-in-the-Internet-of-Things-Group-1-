@@ -1,6 +1,3 @@
-# Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1
-Cloud and Fog Computing in the Internet of Things class
-
 # Smart Medication Box
 ### Smart Medication Reminder System Based on ESP32 and Reed Switch
 
