@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧藥盒監控面板</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- date-fns adapter -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+  <style>
+    body { background: #f5f7fa; }
+    .stat-card {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-2px); }
+    .stat-value { font-size: 2.5rem; font-weight: 700; }
+    .stat-label { color: #6c757d; font-size: 0.9rem; }
+    .chart-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .loading { text-align: center; padding: 50px; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-primary mb-4">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1">💊 智慧藥盒監控面板</span>
+    <span class="text-white" id="last-update">資料更新中...</span>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- 數據卡片區 -->
+  <div class="row g-3 mb-4" id="stats-row">
+    <div class="col-md-3">
+      <div class="stat-card p-4 bg-white">
+        <div class="stat-label">過去 7 天完成率</div>
+        <div class="stat-value text-success" id="stat-rate">--%</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card p-4 bg-white">
+        <div class="stat-label">過去 7 天服藥次數</div>
+        <div class="stat-value text-primary"><span id="stat-taken">--</span>/21</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card p-4 bg-white">
+        <div class="stat-label">平均反應時間</div>
+        <div class="stat-value text-info"><span id="stat-delay">--</span>s</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card p-4 bg-white">
+        <div class="stat-label">遵從性得分</div>
+        <div class="stat-value text-warning" id="stat-score">--</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 圖表區 -->
+  <div class="row g-3 mb-4">
+    <div class="col-md-6">
+      <div class="chart-card">
+        <h5>過去 7 天完成率趨勢</h5>
+        <canvas id="chart-rate"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="chart-card">
+        <h5>遵從性得分趨勢</h5>
+        <canvas id="chart-score"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-6">
+      <div class="chart-card">
+        <h5>每日服藥次數</h5>
+        <canvas id="chart-daily"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="chart-card">
+        <h5>各時段反應延遲</h5>
+        <canvas id="chart-delay"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最近紀錄表格 -->
+  <div class="chart-card mb-4">
+    <h5>最近服藥紀錄</h5>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>時間</th>
+            <th>時段</th>
+            <th>狀態</th>
+            <th>延遲</th>
+          </tr>
+        </thead>
+        <tbody id="records-table"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// === ThingSpeak 設定 ===
+const CHANNEL_ID = "3390354";  // ← 改成你的
+const DAYS = 14;
+
+const SLOT_NAMES = { 1: "早上", 2: "中午", 3: "晚上" };
+
+// === 抓取資料 ===
+async function fetchData() {
+  const url = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?days=${DAYS}`;
+  try {
+    const res = await fetch(url);
+    const json = await res.json();
+    return json.feeds;
+  } catch (err) {
+    console.error("抓取失敗:", err);
+    return [];
+  }
+}
+
+// === 處理資料 ===
+function processData(feeds) {
+  const events = [];        // 事件資料（Field 1-4）
+  const weeklyStats = [];   // 每日 weekly 統計（Field 5-8）
+
+  feeds.forEach(f => {
+    // 事件資料
+    if (f.field1 !== null) {
+      events.push({
+        time: new Date(f.created_at),
+        result: parseInt(f.field1),
+        today_score: parseInt(f.field2),
+        delay: parseInt(f.field3),
+        slot: parseInt(f.field4),
+      });
+    }
+
+    // Weekly 統計（只有晚上那筆才有）
+    if (f.field5 !== null && f.field5 !== "") {
+      weeklyStats.push({
+        time: new Date(f.created_at),
+        rate: parseFloat(f.field5),
+        avgDelay: parseFloat(f.field6),
+        taken: parseInt(f.field7),
+        score: parseInt(f.field8),
+      });
+    }
+  });
+
+  return { events, weeklyStats };
+}
+
+// === 更新統計卡片 ===
+function updateStats(weeklyStats) {
+  if (weeklyStats.length === 0) return;
+  const latest = weeklyStats[weeklyStats.length - 1];
+
+  document.getElementById("stat-rate").textContent = latest.rate + "%";
+  document.getElementById("stat-taken").textContent = latest.taken;
+  document.getElementById("stat-delay").textContent = latest.avgDelay.toFixed(1);
+  document.getElementById("stat-score").textContent = latest.score;
+}
+
+// === 畫線圖（趨勢） ===
+function drawTrendChart(canvasId, label, data, color) {
+  return new Chart(document.getElementById(canvasId), {
+    type: "line",
+    data: {
+      datasets: [{
+        label: label,
+        data: data.map(d => ({ x: d.time, y: d.value })),
+        borderColor: color,
+        backgroundColor: color + "33",
+        fill: true,
+        tension: 0.3,
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: { type: "time", time: { unit: "day" } },
+        y: { beginAtZero: true }
+      }
+    }
+  });
+}
+
+// === 畫柱狀圖 ===
+function drawBarChart(canvasId, label, data, color) {
+  return new Chart(document.getElementById(canvasId), {
+    type: "bar",
+    data: {
+      datasets: [{
+        label: label,
+        data: data.map(d => ({ x: d.time, y: d.value })),
+        backgroundColor: color,
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: { type: "time", time: { unit: "day" } },
+        y: { beginAtZero: true, ticks: { stepSize: 1 } }
+      }
+    }
+  });
+}
+
+// === 更新紀錄表格 ===
+function updateTable(events) {
+  const tbody = document.getElementById("records-table");
+  const recent = events.slice(-15).reverse();  // 最近 15 筆
+
+  tbody.innerHTML = recent.map(e => {
+    const status = e.result === 1
+      ? '<span class="badge bg-success">✓ 已服藥</span>'
+      : '<span class="badge bg-danger">✗ 未服藥</span>';
+    const delayStr = e.result === 1 ? e.delay + "s" : "超時";
+    return `
+      <tr>
+        <td>${e.time.toLocaleString("zh-TW")}</td>
+        <td>${SLOT_NAMES[e.slot] || "-"}</td>
+        <td>${status}</td>
+        <td>${delayStr}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+// === 主流程 ===
+async function init() {
+  const feeds = await fetchData();
+  const { events, weeklyStats } = processData(feeds);
+
+  // 更新時間戳
+  document.getElementById("last-update").textContent =
+    "最後更新: " + new Date().toLocaleString("zh-TW");
+
+  // 更新所有區塊
+  updateStats(weeklyStats);
+
+  drawTrendChart("chart-rate", "完成率 (%)",
+    weeklyStats.map(s => ({ time: s.time, value: s.rate })),
+    "#28a745"
+  );
+
+  drawTrendChart("chart-score", "遵從性得分",
+    weeklyStats.map(s => ({ time: s.time, value: s.score })),
+    "#ffc107"
+  );
+
+  // 每日服藥次數（取每天最後一筆的 today_score）
+  const dailyDoses = {};
+  events.forEach(e => {
+    const dateKey = e.time.toISOString().split("T")[0];
+    dailyDoses[dateKey] = e.today_score;  // 後面會覆蓋前面，最後留下當天最終值
+  });
+  const dailyData = Object.entries(dailyDoses).map(([date, score]) => ({
+    time: new Date(date),
+    value: score
+  }));
+  drawBarChart("chart-daily", "服藥次數", dailyData, "#0d6efd");
+
+  // 各次延遲
+  const delayData = events
+    .filter(e => e.result === 1)
+    .map(e => ({ time: e.time, value: e.delay }));
+  drawBarChart("chart-delay", "延遲 (秒)", delayData, "#17a2b8");
+
+  updateTable(events);
+}
+
+init();
+// 每 60 秒自動更新一次
+setInterval(init, 60000);
+</script>
+
+</body>
+</html>
