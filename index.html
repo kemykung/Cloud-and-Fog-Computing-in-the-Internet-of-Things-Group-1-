@@ -419,7 +419,7 @@ const SLOT_NAMES = { 1: "Morning", 2: "Noon", 3: "Evening" };
 
 // === Fetch Data ===
 async function fetchData() {
-  const url = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?days=${DAYS}`;
+  const url = `https://thingspeak.mathworks.com/channels/${CHANNEL_ID}/feed.json?days=${DAYS}`;
   try {
     const res = await fetch(url);
     const json = await res.json();
