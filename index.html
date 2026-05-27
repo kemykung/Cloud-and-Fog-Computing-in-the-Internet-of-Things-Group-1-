@@ -419,10 +419,11 @@ const SLOT_NAMES = { 1: "Morning", 2: "Noon", 3: "Evening" };
 
 // === Fetch Data ===
 async function fetchData() {
-  const url = `https://thingspeak.mathworks.com/channels/${CHANNEL_ID}/feed.json?days=${DAYS}`;
+  const url = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?days=${DAYS}`;
   try {
     const res = await fetch(url);
     const json = await res.json();
+    console.log("API response:", json);  // 多加這行 debug 用
     return json.feeds;
   } catch (err) {
     console.error("Fetch failed:", err);
