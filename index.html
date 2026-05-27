@@ -110,11 +110,12 @@ const SLOT_NAMES = { 1: "Morning", 2: "Noon", 3: "Evening" };
 let charts = {};
 
 async function fetchData() {
-  const url = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?days=${DAYS}`;
+  const url = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?days=${DAYS}&t=${Date.now()}`;
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { cache: "no-store" });
     const json = await res.json();
     console.log("API feeds count:", json.feeds ? json.feeds.length : 0);
+    console.log("Latest feed:", json.feeds ? json.feeds[json.feeds.length - 1] : null);
     return json.feeds || [];
   } catch (err) {
     console.error("Fetch failed:", err);
@@ -134,6 +135,12 @@ function parseEvents(feeds) {
     }));
 }
 
+function getTaiwanDateKey(date) {
+  return date.toLocaleDateString("en-CA", {
+    timeZone: "Asia/Taipei"
+  });
+}
+
 function calculateWeeklyStats(events) {
   const now = new Date();
   const cutoff = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
@@ -149,17 +156,23 @@ function calculateWeeklyStats(events) {
   return { rate: Math.round(rate * 10) / 10, taken, avgDelay, score };
 }
 
+function getTaiwanDateKey(date) {
+  return date.toLocaleDateString("en-CA", {
+    timeZone: "Asia/Taipei"
+  });
+}
+
 function calculateDailyTrend(events) {
   const byDate = {};
   events.forEach(e => {
-    const k = e.time.toISOString().split("T")[0];
+    const k = getTaiwanDateKey(e.time);
     if (!byDate[k]) byDate[k] = [];
     byDate[k].push(e);
   });
   return Object.keys(byDate).sort().map(dateStr => {
     const d = new Date(dateStr);
     const cutoff = new Date(d.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const window = events.filter(e => e.time >= cutoff && e.time.toISOString().split("T")[0] <= dateStr);
+    const window = events.filter(e => e.time >= cutoff && getTaiwanDateKey(e.time) <= dateStr);
     const total = window.length;
     const taken = window.filter(e => e.result === 1).length;
     const rate = total > 0 ? (taken / total * 100) : 0;
@@ -200,8 +213,26 @@ function drawBar(id, label, data, color) {
 function updateTable(events) {
   const tbody = document.getElementById("records-table");
   tbody.innerHTML = events.slice(-15).reverse().map(e => {
-    const st = e.result === 1 ? '<span class="badge bg-success">✓ Taken</span>' : '<span class="badge bg-danger">✗ Missed</span>';
-    return `<tr><td>${e.time.toLocaleString("en-US")}</td><td>${SLOT_NAMES[e.slot]||"-"}</td><td>${st}</td><td>${e.result===1?e.delay+"s":"Timeout"}</td></tr>`;
+    const st = e.result === 1 
+      ? '<span class="badge bg-success">✓ Taken</span>' 
+      : '<span class="badge bg-danger">✗ Missed</span>';
+
+    const timeText = e.time.toLocaleString("zh-TW", {
+      timeZone: "Asia/Taipei",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+
+    return `<tr>
+      <td>${timeText}</td>
+      <td>${SLOT_NAMES[e.slot] || "-"}</td>
+      <td>${st}</td>
+      <td>${e.result === 1 ? e.delay + "s" : "Timeout"}</td>
+    </tr>`;
   }).join("");
 }
 
@@ -222,7 +253,7 @@ async function init() {
   drawLine("chart-score", "Adherence Score", trend.map(d => ({ time: d.time, value: d.score })), "#ffc107");
 
   const daily = {};
-  events.forEach(e => { daily[e.time.toISOString().split("T")[0]] = e.today_score; });
+  events.forEach(e => { daily[getTaiwanDateKey(e.time)] = e.today_score; });
   drawBar("chart-daily", "Doses Taken", Object.entries(daily).map(([d, v]) => ({ time: new Date(d), value: v })), "#0d6efd");
 
   drawBar("chart-delay", "Delay (sec)", events.filter(e => e.result === 1).map(e => ({ time: e.time, value: e.delay })), "#17a2b8");
