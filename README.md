@@ -77,19 +77,6 @@ Main functions include:
 
 > ![System Architecture](assets/system_architecture.png)
 
-```text
-Hardware Layer
-ESP32 + RTC + Reed Switch + LED + Buzzer
-        ↓
-Edge / Fog Layer
-Local reminder control and medication event processing
-        ↓
-Cloud Layer
-ThingSpeak data upload and storage
-        ↓
-Application Layer
-Dashboard, App Prototype, Wix Website
-```
 
 ### 📦 Hardware Layer
 
