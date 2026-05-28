@@ -141,23 +141,6 @@ ThingSpeak is used as the cloud platform for storing medication records.
 
 > ![Demo Flow](assets/demo_flow.png)
 
-```text
-1. RTC checks the medication schedule
-        ↓
-2. ESP32 activates LED and buzzer
-        ↓
-3. User opens the pill box
-        ↓
-4. Reed switch detects lid opening
-        ↓
-5. ESP32 records Taken / Missed / Delayed
-        ↓
-6. Data is uploaded to ThingSpeak
-        ↓
-7. Dashboard visualizes medication behavior
-        ↓
-8. App prototype presents user and caregiver interaction
-```
 
 | Status      | Condition                                                       |
 | ----------- | --------------------------------------------------------------- |
