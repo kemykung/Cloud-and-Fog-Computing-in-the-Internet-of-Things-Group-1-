@@ -80,7 +80,14 @@
 <div class="container">
   <div class="row g-3 mb-4">
     <div class="col-md-3"><div class="stat-card p-4 bg-white"><div class="stat-label">7-Day Completion Rate</div><div class="stat-value text-success" id="stat-rate">--%</div></div></div>
-    <div class="col-md-3"><div class="stat-card p-4 bg-white"><div class="stat-label">7-Day Doses Taken</div><div class="stat-value text-primary"><span id="stat-taken">--</span>/21</div></div></div>
+    <div class="col-md-3">
+  <div class="stat-card p-4 bg-white">
+    <div class="stat-label">7-Day Doses Taken</div>
+    <div class="stat-value text-primary">
+      <span id="stat-taken">--</span>/<span id="stat-total">--</span>
+    </div>
+  </div>
+</div>
     <div class="col-md-3"><div class="stat-card p-4 bg-white"><div class="stat-label">Avg Response Time</div><div class="stat-value text-info"><span id="stat-delay">--</span>s</div></div></div>
     <div class="col-md-3"><div class="stat-card p-4 bg-white"><div class="stat-label">Adherence Score</div><div class="stat-value text-warning" id="stat-score">--</div></div></div>
   </div>
@@ -206,16 +213,20 @@ function getLastNDatesTaiwan(n) {
 }
 
 function calculateWeeklyStats(events) {
-  const last7Dates = getLastNDatesTaiwan(7);
+  // 先依時間排序，避免 ThingSpeak 回傳順序影響計算
+  const sortedEvents = [...events].sort((a, b) => a.time - b.time);
 
-  const recent = events.filter(e =>
-    last7Dates.includes(getTaiwanDateKey(e.time))
-  );
+  // 用最新 21 筆代表最近 7 天，每天 3 次服藥
+  const recent = sortedEvents.slice(-21);
 
-  const totalExpected = 21; // 7 天 x 每天 3 次
+  const total = recent.length;
   const taken = recent.filter(e => e.result === 1).length;
-  const rate = totalExpected > 0 ? (taken / totalExpected * 100) : 0;
 
+  // Completion Rate：用目前已收到的資料計算
+  // 例如目前只有 1 筆且有吃藥，就是 100%
+  const rate = total > 0 ? (taken / total * 100) : 0;
+
+  // Avg Response Time：只計算有成功服藥的資料
   const delays = recent
     .filter(e => e.result === 1)
     .map(e => e.delay);
@@ -224,6 +235,7 @@ function calculateWeeklyStats(events) {
     ? delays.reduce((a, b) => a + b, 0) / delays.length
     : 0;
 
+  // Delay Score：60 秒內滿分 30 分，超過 60 秒開始扣分
   let delayScore = 30;
   if (avgDelay > 60) {
     delayScore = Math.max(0, 30 - Math.floor((avgDelay - 60) / 10));
@@ -237,16 +249,12 @@ function calculateWeeklyStats(events) {
   return {
     rate: Math.round(rate * 10) / 10,
     taken,
+    total,
     avgDelay,
     score
   };
 }
 
-function getTaiwanDateKey(date) {
-  return date.toLocaleDateString("en-CA", {
-    timeZone: "Asia/Taipei"
-  });
-}
 
 function calculateDailyTrend(events) {
   const byDate = {};
@@ -274,6 +282,7 @@ function calculateDailyTrend(events) {
 function updateStats(s) {
   document.getElementById("stat-rate").textContent = s.rate + "%";
   document.getElementById("stat-taken").textContent = s.taken;
+  document.getElementById("stat-total").textContent = s.total;
   document.getElementById("stat-delay").textContent = s.avgDelay.toFixed(1);
   document.getElementById("stat-score").textContent = s.score;
 }
