@@ -221,6 +221,7 @@ The dashboard helps convert raw IoT sensor data into clear medication behavior i
 ## 📱 Mobile App Prototype
 
 The mobile app prototype demonstrates how users and caregivers can interact with the medication reminder system in a real-life scenario.
+![App Prototype](assets/app_prototype.png)
 
 | Page                   | Function                                                       |
 | ---------------------- | -------------------------------------------------------------- |
