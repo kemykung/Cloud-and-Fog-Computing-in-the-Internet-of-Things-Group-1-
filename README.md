@@ -429,4 +429,3 @@ This project presents a low-cost IoT-based Smart Pill Box system.
 By combining **ESP32**, **RTC scheduling**, **reed switch detection**, **ThingSpeak cloud upload**, **dashboard visualization**, **Wix project website**, and **Figma app prototype design**, the system supports not only local medication reminders but also medication behavior monitoring and remote care scenarios.
 
 The project demonstrates a complete IoT application flow from **device sensing** to **cloud data management** and **user-centered interface design**.
-<img width="589" height="276" alt="image" src="https://github.com/user-attachments/assets/644ffa65-55e8-4813-8f58-9d451184f0e4" />
