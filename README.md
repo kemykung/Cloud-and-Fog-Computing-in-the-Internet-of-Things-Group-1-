@@ -17,7 +17,7 @@ An ESP32-based smart medication box designed to support medication reminders, li
 | 🌐 Project Website      | https://xoxowendy61.wixsite.com/my-site                                                |
 | 📊 Live Dashboard       | https://kemykung.github.io/Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-/ |
 | 🧑‍💻 GitHub Repository | https://github.com/kemykung/Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1- |
-| 📱 App Prototype        | Please add the Figma prototype link here                                               |
+| 📱 App Prototype        | https://www.figma.com/design/WrhiTSzdnIpBZy0kMUPsVT/Untitled?node-id=0-1&t=Hkhunz3Epct07fi3-1 |
 
 ---
 
@@ -357,13 +357,12 @@ Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-
 
 | Member | Student ID | Role                                 | Responsibility                                                |
 | ------ | ---------- | ------------------------------------ | ------------------------------------------------------------- |
-| 鄭羽喬    | M11451023  | Project Coordination / Documentation | GitHub organization, project explanation, report integration  |
-| 蕭詠蒨    | M11451033  | Website / Interface Design           | Wix website, visual presentation, app interface support       |
-| 鄭矞心    | M11451016  | Hardware Integration                 | ESP32 wiring, reed switch, RTC, LED, buzzer testing           |
-| 龔倢     | M11451018  | Cloud & Dashboard                    | ThingSpeak setup, dashboard data mapping, data upload testing |
-| 劉芸廷    | M11451020  | Demo / Final Presentation            | Demo video, project flow explanation, presentation material   |
+| 鄭矞心    | M11451016  |  　　　　　　　　　　　　　　　　　　 | 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  |
+| 龔倢  　  | M11451018  |          　　　　　　　　　　　　　  | 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    　|
+| 劉芸廷    | M11451020  |         　　　　　　　　　　　　   　| 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　|
+| 鄭羽喬    | M11451023  |                 　　　　　　　　    | 　　　　　　　　　　　　　　　　　　　　　　　　　　　　   　   　  |
+| 蕭詠蒨    | M11451033  |                               　　 |                                                               |
 
-> Please adjust the role descriptions based on the actual team division before final submission.
 
 ---
 
