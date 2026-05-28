@@ -221,7 +221,7 @@ The dashboard helps convert raw IoT sensor data into clear medication behavior i
 ## 📱 Mobile App Prototype
 
 The mobile app prototype demonstrates how users and caregivers can interact with the medication reminder system in a real-life scenario.
-![App Prototype](assets/app_prototype.png)
+
 
 | Page                   | Function                                                       |
 | ---------------------- | -------------------------------------------------------------- |
@@ -236,7 +236,7 @@ The mobile app prototype demonstrates how users and caregivers can interact with
 
 The app prototype connects the IoT system with actual user scenarios. ESP32 and ThingSpeak handle data collection and cloud storage, while the app presents medication status in a clear and user-friendly way.
 
-> Image to add later: `assets/app_prototype.png`
+![App Prototype](assets/app_prototype.png)
 
 ---
 
