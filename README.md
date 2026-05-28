@@ -366,22 +366,55 @@ Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-
 
 ---
 
-## 📅 Development Progress
+## 📅 PBL Project Schedule
 
-| Week    | Task                                 | Status                     |
-| ------- | ------------------------------------ | -------------------------- |
-| Week 1  | Topic brainstorming                  | ✅ Completed                |
-| Week 2  | Problem definition                   | ✅ Completed                |
-| Week 3  | System architecture design           | ✅ Completed                |
-| Week 4  | Proposal and BOM preparation         | ✅ Completed                |
-| Week 5  | Component preparation                | 🟡 Completed / In progress |
-| Week 6  | ESP32 and RTC testing                | 🟡 In progress             |
-| Week 7  | Reed switch and reminder testing     | 🟡 In progress             |
-| Week 8  | ThingSpeak upload testing            | 🟡 In progress             |
-| Week 9  | Dashboard integration                | 🟡 In progress             |
-| Week 10 | App prototype and website refinement | 🟡 In progress             |
-| Week 11 | GitHub documentation                 | 🟡 In progress             |
-| Week 12 | Final demo and presentation          | 🔵 Planned                 |
+This project follows a 16-week course schedule.
+The timeline below shows how our Smart Pill Box project is planned and developed from topic selection to final presentation and demo.
+
+### 🗓️ Project Gantt Chart
+
+| Task                                            | W01 | W02 | W03 | W04 | W05 | W06 | W07 | W08 | W09 | W10 | W11 | W12 | W13 | W14 | W15 | W16 |
+| ----------------------------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Topic selection and problem definition          | 🟦  | 🟦  |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+| Background research and existing project review |     | 🟦  | 🟦  | 🟦  | 🟦  |     |     |     |     |     |     |     |     |     |     |     |
+| System architecture planning                    |     |     | 🟩  | 🟩  | 🟩  | 🟩  |     |     |     |     |     |     |     |     |     |     |
+| Component selection and BOM preparation         |     |     |     | 🟨  | 🟨  | 🟨  | 🟨  |     |     |     |     |     |     |     |     |     |
+| Midterm proposal preparation                    |     |     |     |     |     | 🟧  | 🟧  | 🟧  |     |     |     |     |     |     |     |     |
+| ESP32 basic testing                             |     |     |     |     |     |     |     |     | 🟦  | 🟦  |     |     |     |     |     |     |
+| RTC and reminder logic testing                  |     |     |     |     |     |     |     |     |     | 🟩  | 🟩  |     |     |     |     |     |
+| Reed switch lid detection testing               |     |     |     |     |     |     |     |     |     | 🟩  | 🟩  | 🟩  |     |     |     |     |
+| LED and buzzer reminder integration             |     |     |     |     |     |     |     |     |     |     | 🟨  | 🟨  | 🟨  |     |     |     |
+| ThingSpeak cloud data upload                    |     |     |     |     |     |     |     |     |     |     |     | 🟦  | 🟦  | 🟦  |     |     |
+| GitHub Pages dashboard development              |     |     |     |     |     |     |     |     |     | 🟪  | 🟪  | 🟪  | 🟪  | 🟪  |     |     |
+| Wix project website design                      |     |     |     |     |     | 🟪  | 🟪  | 🟪  | 🟪  |     |     |     |     |     |     |     |
+| Figma mobile app prototype                      |     |     |     |     |     |     | 🟪  | 🟪  | 🟪  | 🟪  | 🟪  |     |     |     |     |     |
+| System integration and testing                  |     |     |     |     |     |     |     |     |     |     |     |     | 🟧  | 🟧  | 🟧  |     |
+| GitHub documentation and README refinement      |     |     |     |     |     |     |     | 🟦  | 🟦  | 🟦  | 🟦  | 🟦  | 🟦  | 🟦  | 🟦  |     |
+| Final demo video and presentation preparation   |     |     |     |     |     |     |     |     |     |     |     |     |     | 🟥  | 🟥  | 🟥  |
+| Final presentation and demo                     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     | 🟥  |
+
+### 📌 Milestone Summary
+
+| Milestone                   | Target Week | Deliverable                                                              | Status         |
+| --------------------------- | ----------- | ------------------------------------------------------------------------ | -------------- |
+| Project topic confirmed     | Week 02     | Smart Pill Box topic and problem statement                               | ✅ Completed    |
+| Initial system design       | Week 05     | Hardware, cloud, dashboard, and app architecture                         | ✅ Completed    |
+| Midterm PBL proposal        | Week 08     | Proposal, BOM, team division, and initial planning                       | ✅ Completed    |
+| Interface prototype         | Week 10     | Wix website, Figma app prototype, dashboard layout                       | ✅ Completed    |
+| Hardware and sensor testing | Week 11–13  | ESP32, RTC, reed switch, LED, and buzzer testing                         | 🟡 In Progress |
+| Cloud data upload           | Week 12–14  | ThingSpeak field setup and ESP32 upload testing                          | 🟡 In Progress |
+| System integration          | Week 14–15  | Hardware reminder, lid detection, cloud upload, and dashboard connection | 🔵 Planned     |
+| Final presentation and demo | Week 16     | Final prototype demo, GitHub documentation, and project presentation     | 🔵 Planned     |
+
+### 🎯 Development Focus by Phase
+
+| Phase                          | Weeks      | Main Focus                                                                                           |
+| ------------------------------ | ---------- | ---------------------------------------------------------------------------------------------------- |
+| Phase 1: Planning              | Week 01–05 | Topic selection, problem definition, background research, and system architecture                    |
+| Phase 2: Proposal              | Week 06–08 | BOM preparation, team division, proposal writing, and midterm presentation                           |
+| Phase 3: Prototype Development | Week 09–13 | ESP32 testing, RTC scheduling, reed switch detection, LED/buzzer reminder, and dashboard development |
+| Phase 4: Integration           | Week 14–15 | ThingSpeak upload, system testing, interface refinement, and GitHub documentation                    |
+| Phase 5: Final Demo            | Week 16    | Final presentation, prototype demonstration, and project submission                                  |
 
 ---
 
