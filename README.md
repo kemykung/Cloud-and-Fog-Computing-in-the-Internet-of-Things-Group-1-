@@ -2,10 +2,10 @@
 
 ### IoT Medication Reminder & Remote Monitoring System
 
-An ESP32-based smart medication box designed to support medication reminders, lid-opening detection, cloud data upload, dashboard visualization, and caregiver-side monitoring.
+An IoT-based smart medication box designed to help users take medicine on time, record medication behavior, and support remote caregiver monitoring.
 
 <p align="center">
-  <b>ESP32 ｜ DS3231 RTC ｜ Reed Switch ｜ ThingSpeak ｜ GitHub Pages ｜ Figma App ｜ Wix Website</b>
+  <b>Medication Reminder ｜ Lid Detection ｜ Cloud Upload ｜ Dashboard Visualization ｜ Caregiver Monitoring</b>
 </p>
 
 ---
@@ -27,15 +27,28 @@ The **Smart Pill Box** is an IoT-based medication reminder system designed to im
 
 The system uses an **ESP32** as the main controller, a **DS3231 RTC module** for medication scheduling, a **reed switch** for lid-opening detection, and **LED/buzzer reminders** for real-time alerts.
 
-When a medication event occurs, the ESP32 uploads the medication record to **ThingSpeak** through Wi-Fi. The web dashboard then visualizes medication completion rate, response delay, daily intake, and recent medication behavior.
+When a medication event occurs, the ESP32 uploads the medication record to **ThingSpeak** through Wi-Fi. The GitHub Pages dashboard then visualizes medication completion rate, response delay, daily intake, and recent medication behavior.
 
 This project includes:
 
-* 📦 **Hardware Prototype** — ESP32, RTC, reed switch, LED, and buzzer
+* 📦 **Hardware Prototype** — ESP32, DS3231 RTC, reed switch, LED, and buzzer
 * ☁️ **Cloud Data Upload** — medication records uploaded to ThingSpeak
-* 📊 **Dashboard** — GitHub Pages visualization for medication adherence
-* 📱 **App Prototype** — Figma interface for users and caregivers
-* 🌐 **Project Website** — Wix website for product introduction and demo
+* 📊 **Dashboard** — medication adherence visualization
+* 📱 **App Prototype** — user-side and caregiver-side interface design
+* 🌐 **Project Website** — project introduction and demo presentation
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer              | Tools / Components                          |
+| ------------------ | ------------------------------------------- |
+| Hardware           | ESP32, DS3231 RTC, Reed Switch, LED, Buzzer |
+| Cloud Platform     | ThingSpeak                                  |
+| Data Visualization | GitHub Pages Dashboard                      |
+| App Prototype      | Figma                                       |
+| Project Website    | Wix                                         |
+| Documentation      | GitHub README                               |
 
 ---
 
@@ -75,8 +88,9 @@ Main functions include:
 
 ## 🧩 System Architecture
 
-> ![System Architecture](assets/system_architecture.png)
+![System Architecture](assets/system_architecture.png)
 
+The system is divided into four layers: **Hardware Layer**, **Edge / Fog Layer**, **Cloud Layer**, and **Application Layer**.
 
 ### 📦 Hardware Layer
 
@@ -126,8 +140,9 @@ ThingSpeak is used as the cloud platform for storing medication records.
 
 ## 🔄 System Workflow
 
-> ![Demo Flow](assets/demo_flow.png)
+![Demo Flow](assets/demo_flow.png)
 
+The workflow shows how the system connects medication reminders, lid-opening detection, cloud data upload, and user-side monitoring.
 
 | Status      | Condition                                                       |
 | ----------- | --------------------------------------------------------------- |
@@ -139,9 +154,6 @@ ThingSpeak is used as the cloud platform for storing medication records.
 ---
 
 ## 📦 Hardware Prototype
-
-> 🖼️ **Image to add:** `assets/prototype_photo.jpg`
-> Suggested content: real photo of the smart pill box, ESP32 board, wiring, reed switch, LED, and buzzer
 
 The prototype uses a **reed switch and magnet** to detect whether the pill box lid has been opened.
 
@@ -160,6 +172,8 @@ When the scheduled medication time arrives, the ESP32 activates the LED and buzz
 | Breadboard              |        1 | Prototype wiring                 |
 | Jumper Wires            |    1 set | Circuit connection               |
 | Pill Box                |        1 | Medication storage               |
+
+> Image to add later: `assets/prototype_photo.jpg`
 
 ---
 
@@ -188,9 +202,6 @@ This cloud data is later used by the dashboard to calculate medication adherence
 
 ## 📊 Dashboard Design
 
-> 🖼️ **Image to add:** `assets/dashboard_screenshot.png`
-> Suggested content: screenshot of the GitHub Pages dashboard
-
 The dashboard is used to visualize medication data retrieved from ThingSpeak.
 
 | Metric                   | Meaning                                                                  |
@@ -203,12 +214,11 @@ The dashboard is used to visualize medication data retrieved from ThingSpeak.
 
 The dashboard helps convert raw IoT sensor data into clear medication behavior indicators.
 
+> Image to add later: `assets/dashboard_screenshot.png`
+
 ---
 
 ## 📱 Mobile App Prototype
-
-> 🖼️ **Image to add:** `assets/app_prototype.png`
-> Suggested content: exported screenshot of the Figma app prototype
 
 The mobile app prototype demonstrates how users and caregivers can interact with the medication reminder system in a real-life scenario.
 
@@ -225,12 +235,11 @@ The mobile app prototype demonstrates how users and caregivers can interact with
 
 The app prototype connects the IoT system with actual user scenarios. ESP32 and ThingSpeak handle data collection and cloud storage, while the app presents medication status in a clear and user-friendly way.
 
+> Image to add later: `assets/app_prototype.png`
+
 ---
 
 ## 🌐 Website Design
-
-> 🖼️ **Image to add:** `assets/wix_website_screenshot.png`
-> Suggested content: screenshot of the Wix project website
 
 The Wix website works as the project landing page.
 
@@ -245,6 +254,8 @@ It introduces:
 
 The website helps viewers quickly understand what the project is, why it is needed, and how the system works.
 
+> Image to add later: `assets/wix_website_screenshot.png`
+
 ---
 
 ## 🗂️ Repository Structure
@@ -255,21 +266,13 @@ Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-
 ├── README.md
 ├── index.html
 │
-├── arduino/
-│   └── smart_pill_box.ino
-│
-├── docs/
-│   ├── HARDWARE_SETUP_GUIDE.md
-│   ├── SOFTWARE_SETUP_GUIDE.md
-│   └── SYSTEM_WORKFLOW.md
-│
 ├── assets/
 │   ├── system_architecture.png
+│   ├── demo_flow.png
 │   ├── prototype_photo.jpg
 │   ├── dashboard_screenshot.png
 │   ├── app_prototype.png
-│   ├── wix_website_screenshot.png
-│   └── demo_flow.png
+│   └── wix_website_screenshot.png
 │
 └── data/
     └── sample_thingspeak_data.csv
