@@ -75,7 +75,7 @@ Main functions include:
 
 ## 🧩 System Architecture
 
-> 🖼️ **Image to add:** `assets/system_architecture.png`
+> ![System Architecture](assets/system_architecture.png)
 > Suggested content: ESP32 → ThingSpeak → GitHub Pages Dashboard / Figma App / Caregiver Monitoring
 
 ```text
@@ -140,7 +140,7 @@ ThingSpeak is used as the cloud platform for storing medication records.
 
 ## 🔄 System Workflow
 
-> 🖼️ **Image to add:** `assets/demo_flow.png`
+> ![Demo Flow](assets/demo_flow.png)
 > Suggested content: medication reminder → lid opening → ThingSpeak upload → dashboard update
 
 ```text
