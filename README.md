@@ -76,7 +76,6 @@ Main functions include:
 ## 🧩 System Architecture
 
 > ![System Architecture](assets/system_architecture.png)
-> Suggested content: ESP32 → ThingSpeak → GitHub Pages Dashboard / Figma App / Caregiver Monitoring
 
 ```text
 Hardware Layer
@@ -141,7 +140,6 @@ ThingSpeak is used as the cloud platform for storing medication records.
 ## 🔄 System Workflow
 
 > ![Demo Flow](assets/demo_flow.png)
-> Suggested content: medication reminder → lid opening → ThingSpeak upload → dashboard update
 
 ```text
 1. RTC checks the medication schedule
