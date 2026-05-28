@@ -393,29 +393,6 @@ The timeline below shows how our Smart Pill Box project is planned and developed
 | Final demo video and presentation preparation   |     |     |     |     |     |     |     |     |     |     |     |     |     | 🟥  | 🟥  | 🟥  |
 | Final presentation and demo                     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     | 🟥  |
 
-### 📌 Milestone Summary
-
-| Milestone                   | Target Week | Deliverable                                                              | Status         |
-| --------------------------- | ----------- | ------------------------------------------------------------------------ | -------------- |
-| Project topic confirmed     | Week 02     | Smart Pill Box topic and problem statement                               | ✅ Completed    |
-| Initial system design       | Week 05     | Hardware, cloud, dashboard, and app architecture                         | ✅ Completed    |
-| Midterm PBL proposal        | Week 08     | Proposal, BOM, team division, and initial planning                       | ✅ Completed    |
-| Interface prototype         | Week 10     | Wix website, Figma app prototype, dashboard layout                       | ✅ Completed    |
-| Hardware and sensor testing | Week 11–13  | ESP32, RTC, reed switch, LED, and buzzer testing                         | 🟡 In Progress |
-| Cloud data upload           | Week 12–14  | ThingSpeak field setup and ESP32 upload testing                          | 🟡 In Progress |
-| System integration          | Week 14–15  | Hardware reminder, lid detection, cloud upload, and dashboard connection | 🔵 Planned     |
-| Final presentation and demo | Week 16     | Final prototype demo, GitHub documentation, and project presentation     | 🔵 Planned     |
-
-### 🎯 Development Focus by Phase
-
-| Phase                          | Weeks      | Main Focus                                                                                           |
-| ------------------------------ | ---------- | ---------------------------------------------------------------------------------------------------- |
-| Phase 1: Planning              | Week 01–05 | Topic selection, problem definition, background research, and system architecture                    |
-| Phase 2: Proposal              | Week 06–08 | BOM preparation, team division, proposal writing, and midterm presentation                           |
-| Phase 3: Prototype Development | Week 09–13 | ESP32 testing, RTC scheduling, reed switch detection, LED/buzzer reminder, and dashboard development |
-| Phase 4: Integration           | Week 14–15 | ThingSpeak upload, system testing, interface refinement, and GitHub documentation                    |
-| Phase 5: Final Demo            | Week 16    | Final presentation, prototype demonstration, and project submission                                  |
-
 ---
 
 ## 🔍 Comparison With Existing Smart Pill Box Projects
