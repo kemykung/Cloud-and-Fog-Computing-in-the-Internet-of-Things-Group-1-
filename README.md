@@ -25,13 +25,13 @@ An IoT-based smart medication box designed to help users take medicine on time, 
 
 The **Smart Pill Box** is an IoT-based medication reminder system designed to improve medication adherence.
 
-The system uses an **ESP32** as the main controller, a **DS3231 RTC module** for medication scheduling, a **reed switch** for lid-opening detection, and **LED/buzzer reminders** for real-time alerts.
+The system uses an **ESP32** as the main controller, a **DS3231 RTC module** for medication scheduling, a **reed switch** for lid-opening detection, and a **buzzer reminder** for real-time medication alerts.
 
 When a medication event occurs, the ESP32 uploads the medication record to **ThingSpeak** through Wi-Fi. The GitHub Pages dashboard then visualizes medication completion rate, response delay, daily intake, and recent medication behavior.
 
 This project includes:
 
-* 📦 **Hardware Prototype** — ESP32, DS3231 RTC, reed switch, LED, and buzzer
+* 📦 **Hardware Prototype** — ESP32, DS3231 RTC, reed switch, magnet, and buzzer
 * ☁️ **Cloud Data Upload** — medication records uploaded to ThingSpeak
 * 📊 **Dashboard** — medication adherence visualization
 * 📱 **App Prototype** — user-side and caregiver-side interface design
@@ -41,14 +41,14 @@ This project includes:
 
 ## 🛠️ Technology Stack
 
-| Layer              | Tools / Components                          |
-| ------------------ | ------------------------------------------- |
-| Hardware           | ESP32, DS3231 RTC, Reed Switch, LED, Buzzer |
-| Cloud Platform     | ThingSpeak                                  |
-| Data Visualization | GitHub Pages Dashboard                      |
-| App Prototype      | Figma                                       |
-| Project Website    | Wix                                         |
-| Documentation      | GitHub README                               |
+| Layer              | Tools / Components                             |
+| ------------------ | ---------------------------------------------- |
+| Hardware           | ESP32, DS3231 RTC, Reed Switch, Magnet, Buzzer |
+| Cloud Platform     | ThingSpeak                                     |
+| Data Visualization | GitHub Pages Dashboard                         |
+| App Prototype      | Figma                                          |
+| Project Website    | Wix                                            |
+| Documentation      | GitHub README                                  |
 
 ---
 
@@ -77,7 +77,7 @@ The Smart Pill Box integrates **hardware sensing**, **edge processing**, **cloud
 Main functions include:
 
 * ⏱️ Scheduled medication reminder using **DS3231 RTC**
-* 🔔 LED and buzzer alerts when medication time arrives
+* 🔔 Buzzer alert when medication time arrives
 * 📦 Lid-opening detection using **reed switch + magnet**
 * ⚙️ Local event processing on **ESP32**
 * ☁️ Medication record upload to **ThingSpeak**
@@ -99,7 +99,6 @@ The system is divided into four layers: **Hardware Layer**, **Edge / Fog Layer**
 | ESP32                | Main controller and Wi-Fi communication    |
 | DS3231 RTC           | Tracks real-time medication schedule       |
 | Reed Switch + Magnet | Detects whether the pill box lid is opened |
-| LED                  | Provides visual medication reminder        |
 | Buzzer               | Provides audio medication reminder         |
 | Pill Box             | Physical medication container              |
 
@@ -110,7 +109,7 @@ The ESP32 performs local decision-making before uploading data to the cloud.
 Main tasks include:
 
 * Checking the current time from the RTC module
-* Activating LED and buzzer reminders
+* Activating buzzer reminders
 * Detecting whether the pill box is opened
 * Determining medication status: **Taken**, **Missed**, or **Delayed**
 * Calculating response delay
@@ -157,7 +156,7 @@ The workflow shows how the system connects medication reminders, lid-opening det
 
 The prototype uses a **reed switch and magnet** to detect whether the pill box lid has been opened.
 
-When the scheduled medication time arrives, the ESP32 activates the LED and buzzer. If the user opens the pill box, the system records the medication as taken and uploads the event to ThingSpeak.
+When the scheduled medication time arrives, the ESP32 activates the buzzer reminder. If the user opens the pill box, the system records the medication as taken and uploads the event to ThingSpeak.
 
 ### Hardware Components
 
@@ -168,7 +167,6 @@ When the scheduled medication time arrives, the ESP32 activates the LED and buzz
 | Magnet                  |        1 | Works with reed switch           |
 | RTC DS3231              |        1 | Real-time medication schedule    |
 | Buzzer                  |        1 | Audio reminder                   |
-| LED                     |      1–2 | Visual reminder                  |
 | Breadboard              |        1 | Prototype wiring                 |
 | Jumper Wires            |    1 set | Circuit connection               |
 | Pill Box                |        1 | Medication storage               |
@@ -221,7 +219,6 @@ The dashboard helps convert raw IoT sensor data into clear medication behavior i
 ## 📱 Mobile App Prototype
 
 The mobile app prototype demonstrates how users and caregivers can interact with the medication reminder system in a real-life scenario.
-
 
 | Page                   | Function                                                       |
 | ---------------------- | -------------------------------------------------------------- |
@@ -310,7 +307,7 @@ The timeline below shows how the Smart Pill Box project is planned and developed
 | ESP32 basic testing                             |     |     |     |     |     |     |     |     | 🟦  | 🟦  |     |     |     |     |     |     |
 | RTC and reminder logic testing                  |     |     |     |     |     |     |     |     |     | 🟩  | 🟩  |     |     |     |     |     |
 | Reed switch lid detection testing               |     |     |     |     |     |     |     |     |     | 🟩  | 🟩  | 🟩  |     |     |     |     |
-| LED and buzzer reminder integration             |     |     |     |     |     |     |     |     |     |     | 🟨  | 🟨  | 🟨  |     |     |     |
+| Buzzer reminder integration                     |     |     |     |     |     |     |     |     |     |     | 🟨  | 🟨  | 🟨  |     |     |     |
 | ThingSpeak cloud data upload                    |     |     |     |     |     |     |     |     |     |     |     | 🟦  | 🟦  | 🟦  |     |     |
 | GitHub Pages dashboard development              |     |     |     |     |     |     |     |     |     | 🟪  | 🟪  | 🟪  | 🟪  | 🟪  |     |     |
 | Wix project website design                      |     |     |     |     |     | 🟪  | 🟪  | 🟪  | 🟪  |     |     |     |     |     |     |     |
@@ -338,6 +335,6 @@ Future improvements include:
 
 This project presents a low-cost IoT-based Smart Pill Box system.
 
-By combining **ESP32**, **RTC scheduling**, **reed switch detection**, **ThingSpeak cloud upload**, **dashboard visualization**, **Wix project website**, and **Figma app prototype design**, the system supports not only local medication reminders but also medication behavior monitoring and remote care scenarios.
+By combining **ESP32**, **RTC scheduling**, **reed switch detection**, **buzzer reminder**, **ThingSpeak cloud upload**, **dashboard visualization**, **Wix project website**, and **Figma app prototype design**, the system supports not only local medication reminders but also medication behavior monitoring and remote care scenarios.
 
 The project demonstrates a complete IoT application flow from **device sensing** to **cloud data management** and **user-centered interface design**.
