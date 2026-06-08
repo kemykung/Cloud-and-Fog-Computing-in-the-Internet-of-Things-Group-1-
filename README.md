@@ -215,7 +215,28 @@ The dashboard helps convert raw IoT sensor data into clear medication behavior i
 The recent records table shows detailed medication events, including medication time, time slot, medication status, and response delay.  
 This allows users and caregivers to review whether each dose was taken on time or missed.
 
-![Recent Records](assets/dashboard_recent_records.jpg)
+## 📊 Dashboard Design
+
+The dashboard is used to visualize medication data retrieved from ThingSpeak.
+
+| Metric | Meaning |
+|---|---|
+| 📈 7-Day Completion Rate | Completed doses / scheduled doses within the latest 7 days |
+| 💊 7-Day Doses Taken | Number of `Taken` medication events within the latest 7 days |
+| ⏱️ Avg Response Time | Average delay between reminder time and lid opening |
+| ⭐ Adherence Score | Overall medication behavior score based on completion and response delay |
+| 🧾 Recent Records | Latest medication events grouped by time slot and status |
+
+The dashboard helps convert raw IoT sensor data into clear medication behavior indicators.
+
+![Dashboard Screenshot](assets/dashboard_screenshot.jpg)
+
+### Recent Medication Records
+
+The recent records table shows detailed medication events, including medication time, time slot, medication status, and response delay.  
+This allows users and caregivers to review whether each dose was taken on time or missed.
+
+![Recent Records](assets/Resent%20record.jpg)
 ```
 ## 📱 Mobile App Prototype
 
