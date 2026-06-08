@@ -171,7 +171,7 @@ When the scheduled medication time arrives, the ESP32 activates the buzzer remin
 | Jumper Wires            |    1 set | Circuit connection               |
 | Pill Box                |        1 | Medication storage               |
 
-![Hardware Prototype](assets/prototype_photo.jpg)
+![Prototype Photo](assets/prototype_photo.png)
 
 ---
 
