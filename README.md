@@ -285,15 +285,16 @@ Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-
 
 ## 👥 Team Members & Roles
 
-| Member | Student ID | Role                                    | Responsibility                                                                                                                                               |
-| ------ | ---------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 鄭矞心    | M11451016  | Website Design                          | Website layout design, webpage content organization, visual presentation, and Wix page refinement                                                            |
-| 龔倢     | M11451018  | Programming & Cloud Integration         | Program development, ESP32 logic implementation, ThingSpeak cloud setup, data upload testing, and cloud data field organization                              |
-| 劉芸廷    | M11451020  | GitHub & App System                     | GitHub structure, technical documentation, system architecture explanation, app interface logic design, medication workflow design, and function integration |
-| 鄭羽喬    | M11451023  | Pill Box Design & Report Writing        | Pill box appearance design, prototype concept planning, report writing, project content organization, and final report integration                           |
-| 蕭詠蒨    | M11451033  | Circuit Soldering & Demo Implementation | Circuit board soldering, hardware connection support, practical demo implementation, prototype demonstration preparation, and report support                 |
+| Member | Student ID | Role                                  | Responsibility                                                                                                                                               |
+| ------ | ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 鄭矞心    | M11451016  | Website Design & PPT Preparation      | Website layout design, webpage content organization, Wix page refinement, visual presentation, and PPT report preparation                                    |
+| 龔倢     | M11451018  | Programming & Cloud Integration       | Program development, ESP32 logic implementation, ThingSpeak cloud setup, data upload testing, and cloud data field organization                              |
+| 劉芸廷    | M11451020  | GitHub & App System                   | GitHub structure, technical documentation, system architecture explanation, app interface logic design, medication workflow design, and function integration |
+| 鄭羽喬    | M11451023  | Pill Box Design & PPT Preparation     | Pill box appearance design, prototype concept planning, project content organization, and PPT report preparation                                             |
+| 蕭詠蒨    | M11451033  | Circuit Soldering & Demo Presentation | Circuit board soldering, hardware connection support, practical demo implementation, prototype demonstration, and demo presentation                          |
 
 ---
+
 ### 🗓️ Project Gantt Chart
 This project follows a 16-week course schedule.
 The timeline below shows how the Smart Pill Box project is planned and developed from topic selection to final presentation and demo.
