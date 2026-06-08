@@ -281,7 +281,7 @@ Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-
 | ------ | ---------- | ---- | -------------- |
 | 鄭矞心    | M11451016  |      |                |
 | 龔倢     | M11451018  |      |                |
-| 劉芸廷    | M11451020  |      |                |
+| 劉芸廷    | M11451020 | GitHub & App Design | GitHub documentation, repository organization, app interface design, and app function explanation |
 | 鄭羽喬    | M11451023  |      |                |
 | 蕭詠蒨    | M11451033  |      |                |
 
