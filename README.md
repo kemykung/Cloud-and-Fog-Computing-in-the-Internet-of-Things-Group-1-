@@ -286,13 +286,10 @@ Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-
 | 蕭詠蒨    | M11451033  | Circuit Soldering & Report | Circuit board soldering, hardware connection support, final report organization |
 
 ---
-
-## 📅 PBL Project Schedule
-
+### 🗓️ Project Gantt Chart
 This project follows a 16-week course schedule.
 The timeline below shows how the Smart Pill Box project is planned and developed from topic selection to final presentation and demo.
 
-### 🗓️ Project Gantt Chart
 
 | Task                                            | W01 | W02 | W03 | W04 | W05 | W06 | W07 | W08 | W09 | W10 | W11 | W12 | W13 | W14 | W15 | W16 |
 | ----------------------------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
