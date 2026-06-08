@@ -151,8 +151,9 @@ The workflow shows how the system connects medication reminders, lid-opening det
 | 🔵 Upcoming | Medication time has not arrived yet                             |
 
 ---
-
 ## 📦 Hardware Prototype
+
+![Prototype Photo](assets/prototype_photo.png)
 
 The prototype uses a **reed switch and magnet** to detect whether the pill box lid has been opened.
 
@@ -160,19 +161,16 @@ When the scheduled medication time arrives, the ESP32 activates the buzzer remin
 
 ### Hardware Components
 
-| Component               | Quantity | Purpose                          |
-| ----------------------- | -------: | -------------------------------- |
-| ESP32 Development Board |        1 | Main controller and Wi-Fi upload |
-| Reed Switch Module      |        1 | Lid-opening detection            |
-| Magnet                  |        1 | Works with reed switch           |
-| RTC DS3231              |        1 | Real-time medication schedule    |
-| Buzzer                  |        1 | Audio reminder                   |
-| Breadboard              |        1 | Prototype wiring                 |
-| Jumper Wires            |    1 set | Circuit connection               |
-| Pill Box                |        1 | Medication storage               |
-
-![Prototype Photo](assets/prototype_photo.png)
----
+| Component | Quantity | Purpose |
+|---|---:|---|
+| ESP32 Development Board | 1 | Main controller and Wi-Fi upload |
+| Reed Switch Module | 1 | Lid-opening detection |
+| Magnet | 1 | Works with reed switch |
+| RTC DS3231 | 1 | Real-time medication schedule |
+| Buzzer | 1 | Audio reminder |
+| Breadboard | 1 | Prototype wiring |
+| Jumper Wires | 1 set | Circuit connection |
+| Pill Box | 1 | Medication storage |
 
 ## ☁️ Cloud Data Upload
 
