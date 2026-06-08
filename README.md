@@ -43,7 +43,7 @@ This project includes:
 
 | Layer              | Tools / Components                             |
 | ------------------ | ---------------------------------------------- |
-| Hardware           | ESP32, DS3231 RTC, Reed Switch, Magnet, Buzzer |
+| Hardware           | ESP32, DS3231 RTC, Reed Switch, Magnet, Buzzer, LCD Display |
 | Cloud Platform     | ThingSpeak                                     |
 | Data Visualization | GitHub Pages Dashboard                         |
 | App Prototype      | Figma                                          |
