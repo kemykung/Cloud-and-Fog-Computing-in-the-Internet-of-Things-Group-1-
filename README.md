@@ -173,7 +173,6 @@ When the scheduled medication time arrives, the ESP32 activates the buzzer remin
 
 ![Hardware Prototype](assets/prototype_photo.jpg)
 
-
 ---
 
 ## ☁️ Cloud Data Upload
