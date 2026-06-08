@@ -210,6 +210,7 @@ The dashboard is used to visualize medication data retrieved from ThingSpeak.
 The dashboard helps convert raw IoT sensor data into clear medication behavior indicators.
 
 ![Dashboard Screenshot](assets/dashboard_screenshot.jpg)
+![Resent Record](assets/Resent record.jpg)
 
 ---
 
