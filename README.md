@@ -218,6 +218,8 @@ The dashboard helps convert raw IoT sensor data into clear medication behavior i
 The recent records table shows detailed medication events, including medication time, time slot, medication status, and response delay.  
 This allows users and caregivers to review whether each dose was taken on time or missed.
 
+![Recent Records](assets/Resent%20record.jpg)
+
 ## 📱 Mobile App Prototype
 
 The mobile app prototype demonstrates how users and caregivers can interact with the medication reminder system in a real-life scenario.
