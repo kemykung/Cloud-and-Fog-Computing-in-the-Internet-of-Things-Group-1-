@@ -279,11 +279,11 @@ Cloud-and-Fog-Computing-in-the-Internet-of-Things-Group-1-
 
 | Member | Student ID | Role | Responsibility |
 | ------ | ---------- | ---- | -------------- |
-| 鄭矞心    | M11451016  |      |                |
-| 龔倢     | M11451018  |      |                |
-| 劉芸廷    | M11451020 | GitHub & App Design | GitHub documentation, repository organization, app interface design, and app function explanation |
-| 鄭羽喬    | M11451023  |      |                |
-| 蕭詠蒨    | M11451033  |      |                |
+| 鄭矞心 | M11451016 | Website Design | Website layout design, webpage content organization, visual presentation, and Wix page refinement |
+| 龔倢 | M11451018 | Programming & Cloud Integration | Program development, ESP32 logic implementation, ThingSpeak cloud setup, data upload testing, and cloud data field organization |
+| 劉芸廷 | M11451020 | GitHub & App System | GitHub structure, technical documentation, system architecture explanation, app interface logic design, medication workflow design, and function integration |
+| 鄭羽喬 | M11451023 | Pill Box Design & Report | Pill box appearance design, prototype concept planning, report writing, and final report integration |
+| 蕭詠蒨    | M11451033  | Circuit Soldering & Report | Circuit board soldering, hardware connection support, final report organization |
 
 ---
 
