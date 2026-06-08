@@ -199,17 +199,17 @@ This cloud data is later used by the dashboard to calculate medication adherence
 
 The dashboard is used to visualize medication data retrieved from ThingSpeak.
 
-| Metric                   | Meaning                                                                  |
-| ------------------------ | ------------------------------------------------------------------------ |
-| 📈 7-Day Completion Rate | Completed doses / scheduled doses within the latest 7 days               |
-| 💊 7-Day Doses Taken     | Number of `Taken` medication events within the latest 7 days             |
-| ⏱️ Avg Response Time     | Average delay between reminder time and lid opening                      |
-| ⭐ Adherence Score        | Overall medication behavior score based on completion and response delay |
-| 🧾 Recent Records        | Latest medication events grouped by time slot and status                 |
+| Metric | Meaning |
+|---|---|
+| 📈 7-Day Completion Rate | Completed doses / scheduled doses within the latest 7 days |
+| 💊 7-Day Doses Taken | Number of `Taken` medication events within the latest 7 days |
+| ⏱️ Avg Response Time | Average delay between reminder time and lid opening |
+| ⭐ Adherence Score | Overall medication behavior score based on completion and response delay |
+| 🧾 Recent Records | Latest medication events grouped by time slot and status |
 
 The dashboard helps convert raw IoT sensor data into clear medication behavior indicators.
 
-> Image to add later: `assets/dashboard_screenshot.png`
+![Dashboard Screenshot](assets/dashboard_screenshot.jpg)
 
 ---
 
@@ -240,16 +240,16 @@ The Wix website works as the project landing page.
 
 It introduces:
 
-* 💡 Project motivation
-* 💊 Smart pill box features
-* 🔄 IoT system workflow
-* 🎬 Demo video
-* 🧑‍💻 GitHub repository
-* 👥 Team members
+- 💡 Project motivation
+- 💊 Smart pill box features
+- 🔄 IoT system workflow
+- 🎬 Demo video
+- 🧑‍💻 GitHub repository
+- 👥 Team members
 
 The website helps viewers quickly understand what the project is, why it is needed, and how the system works.
 
-> Image to add later: `assets/wix_website_screenshot.png`
+![Wix Website Screenshot](assets/wix_website_screenshot.jpg)
 
 ---
 
