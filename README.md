@@ -95,13 +95,14 @@ The system is divided into four layers: **Hardware Layer**, **Edge / Fog Layer**
 
 ### 📦 Hardware Layer
 
-| Component            | Purpose                                    |
-| -------------------- | ------------------------------------------ |
-| ESP32                | Main controller and Wi-Fi communication    |
-| DS3231 RTC           | Tracks real-time medication schedule       |
-| Reed Switch + Magnet | Detects whether the pill box lid is opened |
-| Buzzer               | Provides audio medication reminder         |
-| Pill Box             | Physical medication container              |
+| Component            | Purpose                                             |
+| -------------------- | ------------------------------------------------    |
+| ESP32                | Main controller and Wi-Fi communication             |
+| LCD Display          | Displays date, time, and next medication reminder   |
+| DS3231 RTC           | Tracks real-time medication schedule                |
+| Reed Switch + Magnet | Detects whether the pill box lid is opened          |
+| Buzzer               | Provides audio medication reminder                  |
+| Pill Box             | Physical medication container                       |
 
 ### ⚙️ Edge / Fog Layer
 
@@ -166,6 +167,7 @@ When the scheduled medication time arrives, the ESP32 activates the buzzer remin
 |---|---:|---|
 | ESP32 Development Board | 1 | Main controller and Wi-Fi upload |
 | Reed Switch Module | 1 | Lid-opening detection |
+| LCD Display | 1 | Schedule display |
 | Magnet | 1 | Works with reed switch |
 | RTC DS3231 | 1 | Real-time medication schedule |
 | Buzzer | 1 | Audio reminder |
