@@ -77,6 +77,7 @@ The Smart Pill Box integrates **hardware sensing**, **edge processing**, **cloud
 Main functions include:
 
 * ⏱️ Scheduled medication reminder using **DS3231 RTC**
+* 🖥️ The current date, current time, and next medication time showing on **LCD Display**
 * 🔔 Buzzer alert when medication time arrives
 * 📦 Lid-opening detection using **reed switch + magnet**
 * ⚙️ Local event processing on **ESP32**
