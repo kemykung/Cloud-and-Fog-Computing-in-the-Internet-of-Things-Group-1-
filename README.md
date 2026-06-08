@@ -172,7 +172,6 @@ When the scheduled medication time arrives, the ESP32 activates the buzzer remin
 | Pill Box                |        1 | Medication storage               |
 
 ![Prototype Photo](assets/prototype_photo.png)
-
 ---
 
 ## ☁️ Cloud Data Upload
