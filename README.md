@@ -194,7 +194,6 @@ Example meaning:
 This cloud data is later used by the dashboard to calculate medication adherence indicators.
 
 ---
-
 ## 📊 Dashboard Design
 
 The dashboard is used to visualize medication data retrieved from ThingSpeak.
@@ -210,10 +209,14 @@ The dashboard is used to visualize medication data retrieved from ThingSpeak.
 The dashboard helps convert raw IoT sensor data into clear medication behavior indicators.
 
 ![Dashboard Screenshot](assets/dashboard_screenshot.jpg)
-![Resent Record](assets/Resent record.jpg)
 
----
+### Recent Medication Records
 
+The recent records table shows detailed medication events, including medication time, time slot, medication status, and response delay.  
+This allows users and caregivers to review whether each dose was taken on time or missed.
+
+![Recent Records](assets/dashboard_recent_records.jpg)
+```
 ## 📱 Mobile App Prototype
 
 The mobile app prototype demonstrates how users and caregivers can interact with the medication reminder system in a real-life scenario.
