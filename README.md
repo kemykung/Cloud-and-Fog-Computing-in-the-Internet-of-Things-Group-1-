@@ -9,6 +9,11 @@ An IoT-based smart medication box designed to help users take medicine on time, 
 </p>
 
 ---
+## 🎬 Project Demo Video (Click to Youtube Video)
+
+[![Project Demo](https://img.youtube.com/vi/jSWGAZzoAsc/maxresdefault.jpg)](https://www.youtube.com/watch?v=jSWGAZzoAsc)
+
+---
 
 ## 🔗 Project Links
 
